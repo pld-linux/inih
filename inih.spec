@@ -6,13 +6,13 @@
 Summary:	Simple .INI file parser written in C
 Summary(pl.UTF-8):	Prosty parser plików .INI napisany w C
 Name:		inih
-Version:	56
+Version:	57
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/benhoyt/inih/releases
 Source0:	https://github.com/benhoyt/inih/archive/r%{version}/%{name}-r%{version}.tar.gz
-# Source0-md5:	e27e394554d9f339b728035a5766d8f3
+# Source0-md5:	07aa33593487633519fb3a0e55546c09
 URL:		https://github.com/benhoyt/inih
 %{?with_cxx:BuildRequires:	libstdc++-devel}
 BuildRequires:	meson

@@ -6,15 +6,15 @@
 Summary:	Simple .INI file parser written in C
 Summary(pl.UTF-8):	Prosty parser plików .INI napisany w C
 Name:		inih
-Version:	57
+Version:	58
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/benhoyt/inih/releases
 Source0:	https://github.com/benhoyt/inih/archive/r%{version}/%{name}-r%{version}.tar.gz
-# Source0-md5:	07aa33593487633519fb3a0e55546c09
+# Source0-md5:	5c9725320ad2c79e0b1f76568bd0ff24
 URL:		https://github.com/benhoyt/inih
-%{?with_cxx:BuildRequires:	libstdc++-devel}
+%{?with_cxx:BuildRequires:	libstdc++-devel >= 6:4.7}
 BuildRequires:	meson
 BuildRequires:	ninja >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.736
@@ -78,7 +78,7 @@ Summary(pl.UTF-8):	Plik nagłówkowy biblioteki INIReader
 Group:		Development/Libraries
 Requires:	%{name}-c++ = %{version}-%{release}
 Requires:	%{name}-devel = %{version}-%{release}
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:4.7
 
 %description c++-devel
 Header file for INIReader library.

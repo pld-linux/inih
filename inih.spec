@@ -104,17 +104,17 @@ Statyczna biblioteka INIReader.
 %{__sed} -i -e '1s,/usr/bin/env bash,/bin/sh,' examples/cpptest.sh
 
 %build
-%meson build \
+%meson \
 	%{!?with_static_libs:--default-library=shared} \
 	-Ddistro_install=true \
 	%{?with_cxx:-Dwith_INIReader=true} \
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}
 cp -pr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}

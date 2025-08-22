@@ -6,18 +6,19 @@
 Summary:	Simple .INI file parser written in C
 Summary(pl.UTF-8):	Prosty parser plików .INI napisany w C
 Name:		inih
-Version:	58
+Version:	61
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/benhoyt/inih/releases
 Source0:	https://github.com/benhoyt/inih/archive/r%{version}/%{name}-r%{version}.tar.gz
-# Source0-md5:	5c9725320ad2c79e0b1f76568bd0ff24
+# Source0-md5:	4f54579162283914677d95936c3ed135
 URL:		https://github.com/benhoyt/inih
 %{?with_cxx:BuildRequires:	libstdc++-devel >= 6:4.7}
-BuildRequires:	meson
+BuildRequires:	meson >= 0.56.0
 BuildRequires:	ninja >= 1.5
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -144,6 +145,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*.c
 %{_examplesdir}/%{name}-%{version}/config.def
+%{_examplesdir}/%{name}-%{version}/meson.build
 %{_examplesdir}/%{name}-%{version}/test.ini
 
 %if %{with static_libs}

@@ -6,13 +6,13 @@
 Summary:	Simple .INI file parser written in C
 Summary(pl.UTF-8):	Prosty parser plików .INI napisany w C
 Name:		inih
-Version:	61
+Version:	62
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/benhoyt/inih/releases
 Source0:	https://github.com/benhoyt/inih/archive/r%{version}/%{name}-r%{version}.tar.gz
-# Source0-md5:	4f54579162283914677d95936c3ed135
+# Source0-md5:	c0c6982525958a0376a3cb5bfbee14a0
 URL:		https://github.com/benhoyt/inih
 %{?with_cxx:BuildRequires:	libstdc++-devel >= 6:4.7}
 BuildRequires:	meson >= 0.56.0
@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}
 cp -pr examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %if %{without cxx}
-%{__rm} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/{INIReaderExample.cpp,cpptest.sh,cpptest.txt}
+%{__rm} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/{INIReaderExample*.cpp,cpptest.sh,cpptest*.txt}
 %endif
 
 %clean
@@ -135,11 +135,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE.txt README.md
-%attr(755,root,root) %{_libdir}/libinih.so.0
+%{_libdir}/libinih.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libinih.so
+%{_libdir}/libinih.so
 %{_includedir}/ini.h
 %{_pkgconfigdir}/inih.pc
 %dir %{_examplesdir}/%{name}-%{version}
@@ -157,16 +157,18 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with cxx}
 %files c++
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libINIReader.so.0
+%{_libdir}/libINIReader.so.0
 
 %files c++-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libINIReader.so
+%{_libdir}/libINIReader.so
 %{_includedir}/INIReader.h
 %{_pkgconfigdir}/INIReader.pc
 %{_examplesdir}/%{name}-%{version}/INIReaderExample.cpp
+%{_examplesdir}/%{name}-%{version}/INIReaderExampleErrors.cpp
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/cpptest.sh
 %{_examplesdir}/%{name}-%{version}/cpptest.txt
+%{_examplesdir}/%{name}-%{version}/cpptesterrors.txt
 
 %if %{with static_libs}
 %files c++-static
